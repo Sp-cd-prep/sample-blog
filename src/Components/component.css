@@ -36,7 +36,7 @@
 }
 
 nav {
-    /* background-color: rgb(227, 196, 183); */
+    background-color: rgb(227, 196, 183);
     width: 100%;
     border-radius: 8px;
 }
@@ -48,7 +48,7 @@ nav {
     padding: 5px 0;
 }
 
-.nav-menu li{
+.nav-item{
     list-style: none;
     padding: 3px;
     cursor: pointer;
@@ -58,10 +58,103 @@ nav {
     position: relative;
 }
 
-.nav-menu li a{
-    text-decoration: none;
-    
+.nav-item::before{
+    content: '';
+    position: absolute;
+    top: 95%;;
+    left: 0%;
+    transition: all 0.5s linear;
 }
+
+
+.hamburger{
+    display: none;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 4px;
+    background-color: white;
+    margin: 5px auto;;
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+@media screen and (max-width:1100px){
+    .nav-menu{
+        gap: 60px;
+    }
+}
+
+@media screen and (max-width:950px){
+    .nav-menu{
+        gap: 40px;
+    }
+}
+
+@media screen and (max-width:800px){
+    .nav-menu{
+        gap: 30px;
+    }
+
+
+}
+
+@media screen and (max-width:600px){
+    .header{
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 3px solid blueviolet;
+
+    }
+    nav{
+        width: 45px;
+        padding: 5px;
+        background-color: blueviolet;
+    }
+
+    .hamburger{
+        display: block;
+    }
+
+    .hamburger.hamActive .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.hamActive .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.hamActive .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu{
+        position: fixed;
+        top: -100%;
+        left: 7%;
+        width: 90%;
+        gap: 0;
+        flex-direction: column;
+        transition: 0.5s;
+        background-color: antiquewhite;
+        text-align: center;
+    }
+
+    .nav-item{
+        margin: 8px 0;
+    }
+
+    .nav-menu.hamActive{
+        top: 115px;
+        margin: auto;
+    }
+}
+
+
+
+
+
 
 
 .bollywood-image{
